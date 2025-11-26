@@ -13,19 +13,46 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
+        url: '/favicon.ico',
+        sizes: 'any',
+      },
+      {
+        url: '/favicon.svg',
+        type: 'image/svg+xml',
+      },
+      {
+        url: '/favicon-96x96.png',
+        type: 'image/png',
+        sizes: '96x96',
+      },
+      {
         url: '/icon-light-32x32.png',
+        sizes: '32x32',
         media: '(prefers-color-scheme: light)',
       },
       {
         url: '/icon-dark-32x32.png',
+        sizes: '32x32',
         media: '(prefers-color-scheme: dark)',
       },
+    ],
+    shortcut: ['/favicon.ico'],
+    apple: [
       {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/apple-icon.png',
+        sizes: '180x180',
+      },
+      {
+        url: '/apple-touch-icon.png',
+        sizes: '180x180',
       },
     ],
-    apple: '/apple-icon.png',
+    other: [
+      {
+        rel: 'mask-icon',
+        url: '/icon.svg',
+      },
+    ],
   },
 }
 
@@ -36,26 +63,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <style>{`
-          @font-face {
-            font-family: 'Brown Light';
-            src: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Brown-Light-eCyEObvhGlE3GArGAovKqYG9TK2qCZ.ttf') format('truetype');
-            font-weight: 300;
-            font-display: swap;
-          }
-          @font-face {
-            font-family: 'Kabel Black';
-            src: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Kabel-Black-I3XJDKM3qZ9Ua764yowXmQOmhR3MUJ.ttf') format('truetype');
-            font-weight: 900;
-            font-display: swap;
-          }
-          html, body {
-            background-color: #DBE1D4 !important;
-          }
-        `}</style>
-      </head>
-      <body className={`font-sans antialiased`} style={{ backgroundColor: '#DBE1D4' }}>
+      <body className="font-sans antialiased">
         {children}
         <Analytics />
       </body>

@@ -5,12 +5,14 @@
   font-family: 'Brown Light';
   src: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Brown-Light-eCyEObvhGlE3GArGAovKqYG9TK2qCZ.ttf') format('truetype');
   font-weight: 300;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Kabel Black';
   src: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Kabel-Black-I3XJDKM3qZ9Ua764yowXmQOmhR3MUJ.ttf') format('truetype');
   font-weight: 900;
+  font-display: swap;
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -18,7 +20,7 @@
 :root {
   /* Updated color scheme for premium, minimal aesthetic */
   --background: oklch(0.98 0 0);
-  --foreground: oklch(0.15 0 0);
+  --foreground: #333D45;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.15 0 0);
   --primary: oklch(0.15 0 0);
@@ -120,10 +122,24 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground overflow-hidden;
-    background-color: #DBE1D4 !important;
+    background-color: #F9F4EC !important;
   }
+
+  html {
+    background-color: #F9F4EC !important;
+  }
+}
+
+/* Page main container */
+.page-main {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: #F9F4EC;
 }
 
 /* Updated animation for smooth vertical scrolling */
@@ -131,6 +147,7 @@
   0% {
     transform: translateY(0) rotate(180deg);
   }
+
   100% {
     transform: translateY(-100%) rotate(180deg);
   }
@@ -141,6 +158,7 @@
   0% {
     transform: translateY(-100%);
   }
+
   100% {
     transform: translateY(100vh);
   }
@@ -169,4 +187,70 @@
   min-width: 100vw !important;
   min-height: 100vh !important;
   z-index: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Mobile adjustments - restringi il modello lateralmente */
+@media (max-width: 768px) {
+  .embed-fullscreen {
+
+    width: 90vw !important;
+  }
+}
+
+/* Cookie banner */
+.cookie-wrapper {
+  position: fixed;
+  left: 12px;
+  top: 12px;
+  z-index: 10000;
+  pointer-events: auto;
+}
+
+.cookie-banner {
+  background: #F9F4EC;
+  color: #333D45;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 0.5px solid #333D45;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  max-width: 360px;
+  font-family: 'Brown Light', system-ui;
+  text-transform: uppercase;
+}
+
+.cookie-text {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.cookie-link {
+  color: #333D45;
+  text-decoration: underline;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.cookie-accept {
+  background: #333D45;
+  color: #DBE1D4;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.cookie-dismiss {
+  background: transparent;
+  color: #333D45;
+  border: 1px solid rgba(51, 61, 69, 0.12);
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-transform: uppercase;
 }

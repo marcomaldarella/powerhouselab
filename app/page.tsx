@@ -2,16 +2,17 @@
 
 import VerticalMarquee from '@/components/vertical-marquee'
 import ContactForm from '@/components/contact-form'
+import CookieBanner from '@/components/cookie-banner'
 
 export default function Page() {
   return (
-    <main className="w-screen h-screen text-foreground relative overflow-hidden" style={{ backgroundColor: '#DBE1D4' }}>
+    <main className="page-main">
       {/* Embedded Interactive Tool - Full Screen */}
       <iframe
         className="embed-fullscreen"
-        src="https://app.endlesstools.io/embed/fc32f68b-a92f-48d3-bd01-dd95cd78d700"
+        src="https://app.endlesstools.io/embed/d137be1b-13b1-4384-a5df-746f9c16ff09"
         title="Endless Tools Editor"
-        frameBorder="0"
+        loading="eager"
         allow="clipboard-write; encrypted-media; gyroscope; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
@@ -21,6 +22,9 @@ export default function Page() {
 
       {/* Vertical Marquee - Fixed Right */}
       <VerticalMarquee />
+
+      {/* Cookie Banner */}
+      <CookieBanner />
     </main>
   )
 }

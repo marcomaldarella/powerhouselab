@@ -5,6 +5,7 @@ import React, { useEffect, useRef, useState } from 'react'
 export default function VerticalMarquee() {
   const leftInnerRef = useRef<HTMLDivElement | null>(null)
   const rightInnerRef = useRef<HTMLDivElement | null>(null)
+  const [isReady, setIsReady] = useState(false)
 
   const [repeatCount, setRepeatCount] = useState(14)
   const items = Array.from({ length: repeatCount }, () => 'COMING SOON')
@@ -66,6 +67,9 @@ export default function VerticalMarquee() {
     }
     window.addEventListener('resize', onResize)
 
+    // Mark as ready immediately after setup
+    setIsReady(true)
+
     return () => {
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onResize)
@@ -74,7 +78,7 @@ export default function VerticalMarquee() {
 
   return (
     <>
-      <div className="vertical-marquee">
+      <div className={`vertical-marquee ${isReady ? 'marquee-visible' : 'marquee-hidden'}`}>
         <div className="marquee-side marquee-left" aria-hidden>
           <div className="marquee-track">
             <div ref={leftInnerRef} className="marquee-inner">
@@ -107,7 +111,23 @@ export default function VerticalMarquee() {
       </div>
 
       <style jsx>{`
-        .vertical-marquee { pointer-events: none; }
+        .vertical-marquee { 
+          pointer-events: none;
+        }
+
+        .marquee-hidden {
+          opacity: 0;
+        }
+
+        .marquee-visible {
+          opacity: 1;
+          animation: fadeInMarquee 0.6s ease-in-out;
+        }
+
+        @keyframes fadeInMarquee {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
 
         .marquee-side {
           position: fixed;
@@ -119,15 +139,24 @@ export default function VerticalMarquee() {
           display: flex;
           align-items: center;
           justify-content: center;
-          z-index: 50;
-          background: rgb(219,225,212); /* user supplied fade color */
+          z-index: 10;
+          background: #F9F4EC; /* updated background color */
           pointer-events: none;
           -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
           mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
         }
 
-        .marquee-left { left: 4px; }
-        .marquee-right { right: 4px; transform: translateY(-50%); }
+        /* Mobile: background trasparente e sfumatura più estesa in basso */
+        @media (max-width: 768px) {
+          .marquee-side {
+            background: transparent;
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 50%, transparent 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 50%, transparent 100%);
+          }
+        }
+
+        .marquee-left { left: 0px; }
+        .marquee-right { right: 0px; transform: translateY(-50%); }
 
         .marquee-track {
           display: flex;
@@ -144,11 +173,11 @@ export default function VerticalMarquee() {
         .marquee-item {
           font-family: 'Brown Light', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
           font-weight: 300;
-          font-size: 18px;
-          /* tighter kerning per request */
-          letter-spacing: 0.5px;
+          font-size: 14px;
+          /* tighter kerning */
+          letter-spacing: -0.5px;
           text-transform: uppercase;
-          color: #000;
+          color: #333D45;
           writing-mode: vertical-rl;
           transform: rotate(180deg);
           white-space: nowrap;
