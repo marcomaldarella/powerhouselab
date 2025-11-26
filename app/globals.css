@@ -194,7 +194,19 @@
 @media (max-width: 768px) {
   .embed-fullscreen {
 
-    width: 90vw !important;
+    width: 92vw !important;
+    height: 82vh !important;
+    top: 9vh !important;
+    left: 4vw !important;
+    right: auto !important;
+    bottom: auto !important;
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  }
+
+  .embed-mobile-shrink {
+    transform: scale(0.9);
+    transform-origin: center 10%;
   }
 }
 

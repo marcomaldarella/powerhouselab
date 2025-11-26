@@ -29,12 +29,11 @@ export default function Page() {
       {/* Embedded Interactive Tool - Full Screen */}
       {shouldLoadEmbed ? (
         <iframe
-          className="embed-fullscreen"
+          className={`embed-fullscreen ${isMobile ? 'embed-mobile-shrink' : ''}`}
           src="https://app.endlesstools.io/embed/a9bf618d-2151-400b-9a01-3dc02227ca5c"
           title="Endless Tools Editor"
           loading={isMobile ? 'lazy' : 'eager'}
           allow="clipboard-write; encrypted-media; gyroscope; web-share"
-          allowTransparency
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen
         />
