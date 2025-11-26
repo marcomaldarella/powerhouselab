@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
 
     // Send email using Resend
     const data = await resend.emails.send({
-      from: 'Powerhouse Lab <onboarding@resend.dev>', // Usa il dominio verificato in produzione
+      from: 'Powerhouse Lab <hello@powerhouselab.co.uk>',
       to: to,
       subject: `Someone just signed up on Power House website`,
       html: `
