@@ -8,6 +8,9 @@ import CookieBanner from '@/components/cookie-banner'
 export default function Page() {
   const [isMobile, setIsMobile] = useState(false)
   const [shouldLoadEmbed, setShouldLoadEmbed] = useState(false)
+  const desktopEmbed = 'https://app.endlesstools.io/embed/a9bf618d-2151-400b-9a01-3dc02227ca5c'
+  const mobileEmbed = 'https://app.endlesstools.io/embed/8f0af355-12e7-41fa-bf40-e3db7d6afc42'
+  const embedSrc = isMobile ? mobileEmbed : desktopEmbed
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 768px)')
@@ -29,8 +32,8 @@ export default function Page() {
       {/* Embedded Interactive Tool - Full Screen */}
       {shouldLoadEmbed ? (
         <iframe
-          className={`embed-fullscreen ${isMobile ? 'embed-mobile-shrink' : ''}`}
-          src="https://app.endlesstools.io/embed/a9bf618d-2151-400b-9a01-3dc02227ca5c"
+          className="embed-fullscreen"
+          src={embedSrc}
           title="Endless Tools Editor"
           loading={isMobile ? 'lazy' : 'eager'}
           allow="clipboard-write; encrypted-media; gyroscope; web-share"
@@ -53,7 +56,7 @@ export default function Page() {
             <p className="embed-placeholder__note">
               If it fails to load, try opening in a new tab: <br />
               <a
-                href="https://app.endlesstools.io/embed/a9bf618d-2151-400b-9a01-3dc02227ca5c"
+                href={embedSrc}
                 target="_blank"
                 rel="noreferrer"
               >

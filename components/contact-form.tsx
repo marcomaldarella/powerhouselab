@@ -55,8 +55,8 @@ export default function ContactForm() {
   return (
     <>
       {/* Gradient overlay to cover marquees */}
-      <div className="fixed inset-x-0 bottom-0 h-[40vh] md:h-[25vh] pointer-events-none z-45" style={{
-        background: 'linear-gradient(to top, #F9F4EC 0%, #F9F4EC 15%, rgba(249, 244, 236, 0) 100%)'
+      <div className="fixed inset-x-0 bottom-0 h-[45vh] md:h-[25vh] pointer-events-none z-45" style={{
+        background: 'linear-gradient(to top, #F9F4EC 0%, #F9F4EC 35%, rgba(249, 244, 236, 0) 100%)'
       }}></div>
 
       <div className="fixed inset-x-0 bottom-8 md:bottom-4 z-50 flex items-start justify-center">
@@ -110,7 +110,7 @@ export default function ContactForm() {
             )}
           </form>
 
-          <p className="text-xs text-center mt-2 opacity-60" style={{ textTransform: 'none' }}>
+          <p className="text-xs text-center pt-4 pb-4 mt-2 opacity-60" style={{ textTransform: 'none' }}>
             By submitting, you agree to our{' '}
             <a href="/privacy-policy" className="underline">Privacy Policy</a>
             {' '}and consent to receive updates.
