@@ -186,6 +186,7 @@
   max-height: none !important;
   min-width: 100vw !important;
   min-height: 100vh !important;
+  margin-top: -60px !important;
   z-index: 1 !important;
   pointer-events: auto !important;
 }
@@ -193,8 +194,14 @@
 /* Mobile adjustments - restringi il modello lateralmente */
 @media (max-width: 768px) {
   .embed-fullscreen {
-
-    width: 90vw !important;
+    width: 105vw !important;
+    min-width: 105vw !important;
+    height: 111vh !important;
+    min-height: 111vh !important;
+    margin-top: -12vh !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
   }
 }
 
@@ -256,7 +263,7 @@
 }
 
 /* Vertical marquee */
-.vertical-marquee { 
+.vertical-marquee {
   pointer-events: none;
 }
 
@@ -270,23 +277,31 @@
 }
 
 @keyframes fadeInMarquee {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .marquee-side {
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  width: 28px; /* tighter, closer to the edge */
-  padding-inline: 0.125rem; /* nearly flush with the viewport edge */
+  width: 28px;
+  /* tighter, closer to the edge */
+  padding-inline: 0.125rem;
+  /* nearly flush with the viewport edge */
   height: 100vh;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10;
-  background: #F9F4EC; /* updated background color */
+  background: #F9F4EC;
+  /* updated background color */
   pointer-events: none;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 70%, transparent 100%);
   mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 70%, transparent 100%);
@@ -301,8 +316,14 @@
   }
 }
 
-.marquee-left { left: 0px; }
-.marquee-right { right: 0px; transform: translateY(-50%); }
+.marquee-left {
+  left: 0px;
+}
+
+.marquee-right {
+  right: 0px;
+  transform: translateY(-50%);
+}
 
 .marquee-track {
   display: flex;
@@ -314,7 +335,10 @@
   will-change: transform;
 }
 
-.marquee-inner { display: flex; flex-direction: column; }
+.marquee-inner {
+  display: flex;
+  flex-direction: column;
+}
 
 .marquee-item {
   font-family: 'Brown Light', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
@@ -327,9 +351,12 @@
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   white-space: nowrap;
-  margin: 0; /* avoid default h1 margins creating gaps */
-  line-height: 1; /* tighter line height for consistent measurement */
-  padding-bottom: 4px; /* slightly reduced spacing between lines */
+  margin: 0;
+  /* avoid default h1 margins creating gaps */
+  line-height: 1;
+  /* tighter line height for consistent measurement */
+  padding-bottom: 4px;
+  /* slightly reduced spacing between lines */
 }
 
 /* Desktop: +1px for a bit more presence */
@@ -340,23 +367,39 @@
 }
 
 /* Right side should appear capovolto: rotate the container but keep each item unrotated so letters are inverted */
-.marquee-right .marquee-item { transform: rotate(0deg); }
+.marquee-right .marquee-item {
+  transform: rotate(0deg);
+}
 
 /* Right animation: move downwards by the calculated shift (fallback to 50% if var not available) */
 @keyframes scrollDown {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(calc(var(--marquee-shift, 50%) )); }
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(calc(var(--marquee-shift, 50%)));
+  }
 }
 
-.marquee-right .marquee-track { animation: scrollDown 18s linear infinite; }
+.marquee-right .marquee-track {
+  animation: scrollDown 18s linear infinite;
+}
 
 @keyframes scrollUp {
-  0% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+
   /* use calculated pixel shift when available, otherwise move -50% of the track */
-  100% { transform: translateY(calc(var(--marquee-shift, 50%) * -1)); }
+  100% {
+    transform: translateY(calc(var(--marquee-shift, 50%) * -1));
+  }
 }
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
+  .marquee-track {
+    animation: none;
+  }
 }
