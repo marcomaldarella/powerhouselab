@@ -8,8 +8,8 @@ import CookieBanner from '@/components/cookie-banner'
 export default function Page() {
   const [isMobile, setIsMobile] = useState(false)
   const [shouldLoadEmbed, setShouldLoadEmbed] = useState(false)
-  const desktopEmbed = 'https://app.endlesstools.io/embed/a9bf618d-2151-400b-9a01-3dc02227ca5c'
-  const mobileEmbed = 'https://app.endlesstools.io/embed/8f0af355-12e7-41fa-bf40-e3db7d6afc42'
+  const desktopEmbed = 'https://app.endlesstools.io/embed/b646c2a5-515d-4544-9ecf-4c61266030af'
+  const mobileEmbed = 'https://app.endlesstools.io/embed/b646c2a5-515d-4544-9ecf-4c61266030af'
   const embedSrc = isMobile ? mobileEmbed : desktopEmbed
 
   useEffect(() => {
@@ -39,6 +39,8 @@ export default function Page() {
           allow="clipboard-write; encrypted-media; gyroscope; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen
+          allowtransparency="true"
+          style={{ backgroundColor: 'transparent' }}
         />
       ) : (
         <div className="embed-placeholder">

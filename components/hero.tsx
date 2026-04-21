@@ -6,12 +6,14 @@ export default function Hero() {
       {/* Embedded Endless Tools */}
       <iframe
         className="embed-fullscreen"
-        src="https://app.endlesstools.io/embed/1fe2b2d9-18ac-48f7-8172-b9353f49dc94"
+        src="https://app.endlesstools.io/embed/b646c2a5-515d-4544-9ecf-4c61266030af"
         title="Endless Tools Editor"
         frameBorder="0"
         allow="clipboard-write; encrypted-media; gyroscope; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
+        allowtransparency="true"
+        style={{ backgroundColor: 'transparent' }}
       />
 
       {/* Header Overlay */}
