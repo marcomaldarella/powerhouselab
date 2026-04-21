@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: 'Powerhouse Lab - Creative Innovation',
   description: 'Powerhouse Lab: Where innovation meets vision',
   generator: 'v0.app',
+  verification: {
+    google: '1RCqe3tvvolBa4m_X6nP48e8b5ft2GYlPN7k5hs4z0U',
+  },
   icons: {
     icon: [
       {
