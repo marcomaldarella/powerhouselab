@@ -7,8 +7,24 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Powerhouse Lab - Creative Innovation',
-  description: 'Powerhouse Lab: Where innovation meets vision',
+  title: 'Powerhouse Lab — Reformer Pilates & Coffee Bar, London',
+  description: 'Designed for presence. Reformer Pilates · Coffee Bar. London · Coming 2026.',
+  metadataBase: new URL('https://powerhouselab.co.uk'),
+  openGraph: {
+    title: 'Powerhouse Lab — Reformer Pilates & Coffee Bar, London',
+    description: 'Designed for presence. Reformer Pilates · Coffee Bar. London · Coming 2026.',
+    url: 'https://powerhouselab.co.uk',
+    siteName: 'Powerhouse Lab',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Powerhouse Lab — Reformer Pilates & Coffee Bar, London',
+    description: 'Designed for presence. Reformer Pilates · Coffee Bar. London · Coming 2026.',
+  },
+  alternates: {
+    canonical: 'https://powerhouselab.co.uk',
+  },
   verification: {
     google: '1RCqe3tvvolBa4m_X6nP48e8b5ft2GYlPN7k5hs4z0U',
   },
